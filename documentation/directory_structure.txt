@@ -1,0 +1,28 @@
+/roamCities
+│
+├── /client                   # Frontend application
+│   ├── /public               # Static files
+│   ├── /src                  # Source code for frontend
+│   └── package.json          # Frontend dependencies
+│
+├── /server                   # API server application
+│   ├── /config               # Configuration files
+│   ├── /controllers          # API request handlers
+│   ├── /models               # Database models
+│   ├── /routes               # API routes
+│   ├── /middleware           # Middleware functions
+│   ├── /utils                # Utility functions
+│   ├── /tests                # Backend tests
+│   ├── server.js             # Entry point for the server
+│   └── package.json          # Server dependencies
+│
+├── /backend                  # Business logic and database management
+│   ├── /services             # Services for handling complex logic
+│   ├── /repositories         # Data access layer
+│   ├── /migrations           # Database migrations
+│   └── README.md             # Documentation for backend
+│
+├── /scripts                  # Scripts for various tasks
+├── /docs                     # Documentation for the entire application
+├── .gitignore                # Git ignore file
+└── README.md                 # Project documentation
