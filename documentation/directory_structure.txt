@@ -1,6 +1,6 @@
 /roamCities
 │
-├── /client                   # Frontend application
+├── /frontend                 # Frontend application
 │   ├── /public               # Static files
 │   ├── /src                  # Source code for frontend
 │   └── package.json          # Frontend dependencies
@@ -21,6 +21,10 @@
 │   ├── /repositories         # Data access layer
 │   ├── /migrations           # Database migrations
 │   └── README.md             # Documentation for backend
+|
+|
+├── /documentation            # Documentation to understand the repo
+│   └── directory_structure   # YOU ARE HERE       
 │
 ├── /scripts                  # Scripts for various tasks
 ├── /docs                     # Documentation for the entire application
