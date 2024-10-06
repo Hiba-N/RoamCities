@@ -25,7 +25,27 @@ services:  #running frontend container
     #This gives you flexibility. In development or production, you might want to run a different command than what 
     #is defined in the Dockerfile
 
+  db:
+    container_name: roamcities-db
+    image: postgis/postgis:13-3.1  # Use PostGIS-enabled PostgreSQL
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=roam-cities
+    ports:
+      - "1233:1233"  
+    volumes:
+        #[host_path]:[container_path]
+      - ./db_data:/var/lib/postgresql/data  #Persist data
+      - ./scripts/seeder.sql:/docker-entrypoint-initdb.d/schema.sql  #schema path
+    command: postgres -p 1233  
+
+volumes:
+  db_data:
 
 
 
-#changes in yaml file usually require restarting the container
+
+
+
+#changes in yaml file require restarting the container
