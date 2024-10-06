@@ -1,0 +1,31 @@
+#yml is a config file for Docker Compose.
+#It allows to deploy, combine, and configure multiple docker containers at the same time.
+#The Docker "rule" is to outsource every single process to its own Docker container.
+
+version: '3.8'  # docker compose version that will be used
+
+services:  #running frontend container
+  frontend:
+    build:
+      context: ./frontend  # This points to the frontend directory for building the image
+    container_name: roamcities-frontend
+    ports:
+      - "1234:1234"  # port binding/occupying
+      #Any traffic sent to localhost:3000 on your host machine will be routed to port 3000 in the container.
+    volumes:
+    #The volumes section in a docker-compose.yml file is used to map directories (or files)
+    #from your local machine to the Docker container, allowing the container to access or modify them as needed.
+    #This is useful for development environments where you want changes made on your local machine
+    #to be immediately reflected in the running container without rebuilding the image.
+    #Ideal for development environments where you want to update your code frequently without rebuilding the image.
+      - ./frontend/src:/frontend/src  
+      - ./frontend/public:/frontend/public
+    command: npm start 
+    #If command: npm start is present in docker-compose.yml, it overrides the default CMD specified in the Dockerfile.
+    #This gives you flexibility. In development or production, you might want to run a different command than what 
+    #is defined in the Dockerfile
+
+
+
+
+#changes in yaml file usually require restarting the container
